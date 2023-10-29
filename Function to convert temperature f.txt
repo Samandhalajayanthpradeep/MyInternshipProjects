@@ -1,0 +1,88 @@
+# Function to convert temperature from Celsius to Fahrenheit and vice versa
+def temperature_converter():
+    try:
+        temperature = float(input("Enter the temperature value: "))
+        source_unit = input("Enter source unit (C for Celsius, F for Fahrenheit): ").upper()
+
+        if source_unit == "C":
+            converted_temperature = (temperature * 9/5) + 32
+            target_unit = "Fahrenheit"
+        elif source_unit == "F":
+            converted_temperature = (temperature - 32) * 5/9
+            target_unit = "Celsius"
+        else:
+            print("Invalid source unit. Please enter C or F.")
+            return
+        
+        print(f"The converted temperature is {converted_temperature:.2f} {target_unit}.")
+    
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for temperature.")
+        
+
+# Function to convert length from meters to feet and vice versa
+def length_converter():
+    try:
+        length = float(input("Enter the length value: "))
+        source_unit = input("Enter source unit (M for meters, F for feet): ").upper()
+
+        if source_unit == "M":
+            converted_length = length * 3.28084
+            target_unit = "Feet"
+        elif source_unit == "F":
+            converted_length = length / 3.28084
+            target_unit = "Meters"
+        else:
+            print("Invalid source unit. Please enter M or F.")
+            return
+        
+        print(f"The converted length is {converted_length:.2f} {target_unit}.")
+    
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for length.")
+        
+
+# Function to convert weight from kilograms to pounds and vice versa
+def weight_converter():
+    try:
+        weight = float(input("Enter the weight value: "))
+        source_unit = input("Enter source unit (K for kilograms, P for pounds): ").upper()
+
+        if source_unit == "K":
+            converted_weight = weight * 2.20462
+            target_unit = "Pounds"
+        elif source_unit == "P":
+            converted_weight = weight / 2.20462
+            target_unit = "Kilograms"
+        else:
+            print("Invalid source unit. Please enter K or P.")
+            return
+        
+        print(f"The converted weight is {converted_weight:.2f} {target_unit}.")
+    
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for weight.")
+
+
+# Main function to handle user input and selection
+def main():
+    print("Welcome to the Unit Converter!")
+    print("Select an option:")
+    print("1. Temperature Converter")
+    print("2. Length Converter")
+    print("3. Weight Converter")
+
+    choice = input("Enter your choice (1, 2, or 3): ")
+
+    if choice == "1":
+        temperature_converter()
+    elif choice == "2":
+        length_converter()
+    elif choice == "3":
+        weight_converter()
+    else:
+        print("Invalid choice. Please enter 1, 2, or 3.")
+
+
+if __name__ == "__main__":
+    main()
