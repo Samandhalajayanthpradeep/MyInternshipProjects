@@ -1,0 +1,107 @@
+class Task:
+    def __init__(self, description, due_date, priority):
+        self.description = description
+        self.due_date = due_date
+        self.priority = priority
+        self.completed = False
+
+class ToDoList:
+    def __init__(self):
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+    def display_tasks(self):
+        print("Task List:")
+        for index, task in enumerate(self.tasks, start=1):
+            print(f"{index}. Description: {task.description}, Due Date: {task.due_date}, Priority: {task.priority}, Completed: {task.completed}")
+
+    def mark_completed(self, task_index):
+        task = self.tasks[task_index]
+        task.completed = True
+        print(f"Task '{task.description}' marked as completed.")
+
+    def update_task(self, task_index, new_description, new_due_date, new_priority):
+        task = self.tasks[task_index]
+        task.description = new_description
+        task.due_date = new_due_date
+        task.priority = new_priority
+        print("Task updated successfully.")
+
+    def remove_task(self, task_index):
+        removed_task = self.tasks.pop(task_index)
+        print(f"Task '{removed_task.description}' removed successfully.")
+
+def main():
+    todo_list = ToDoList()
+
+    while True:
+        print("\nMenu:")
+        print("1. Add Task")
+        print("2. Display Tasks")
+        print("3. Mark Task as Completed")
+        print("4. Update Task")
+        print("5. Remove Task")
+        print("6. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            description = input("Enter task description: ")
+            due_date = input("Enter due date: ")
+            priority = input("Enter priority: ")
+            task = Task(description, due_date, priority)
+            todo_list.add_task(task)
+
+        elif choice == "2":
+            todo_list.display_tasks()
+
+        elif choice == "3":
+            task_index = int(input("Enter task number to mark as completed: ")) - 1
+            todo_list.mark_completed(task_index)
+
+        elif choice == "4":
+            task_index = int(input("Enter task number to update: ")) - 1
+            new_description = input("Enter new task description: ")
+            new_due_date = input("Enter new due date: ")
+            new_priority = input("Enter new priority: ")
+            todo_list.update_task(task_index, new_description, new_due_date, new_priority)
+
+        elif choice == "5":
+            task_index = int(input("Enter task number to remove: ")) - 1
+            todo_list.remove_task(task_index)
+
+        elif choice == "6":
+            print("Exiting the application. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+=============================================================================================================================================
+=============================================================================================================================================
+
+Description:
+------------
+
+The To-Do List Application in Python is a program designed to help users organize and manage their tasks efficiently. It allows users to add new tasks, specify task descriptions, due dates, and priorities. The application provides a clear and structured display of tasks, including details such as descriptions, due dates, and priorities. Users can mark tasks as completed, updating their status and moving them to a separate completed tasks list. Additionally, users have the option to update existing tasks, modifying their descriptions, due dates, or priorities. Furthermore, the application enables users to remove tasks from the list, ensuring their task list stays relevant and up to date.
+
+Significance:
+-------------
+
+Organization and Productivity: To-Do List applications are invaluable tools for organizing tasks. By providing a centralized location to list tasks and their details, the application helps users manage their time effectively, enhancing productivity.
+
+Time Management: The ability to set due dates and priorities allows users to prioritize tasks based on their importance and deadlines. This feature helps users allocate their time efficiently, ensuring that critical tasks are completed first.
+
+Task Tracking: Users can easily track the status of their tasks. By marking tasks as completed, users can visualize their progress and accomplishments, motivating them to stay focused and complete their tasks.
+
+Flexibility and Adaptability: Users can update task details such as descriptions, due dates, and priorities as circumstances change. This adaptability ensures that the to-do list remains relevant and reflects the user's current priorities and commitments.
+
+Reduction of Mental Load: Writing down tasks reduces the mental load of trying to remember everything. By offloading tasks onto a to-do list, users can clear mental space, reduce stress, and focus on the task at hand.
+
+Improved Focus: A well-organized to-do list helps users maintain focus on their current tasks. By eliminating the mental clutter of trying to remember multiple tasks, users can concentrate on completing one task at a time, leading to better outcomes.
+
+In summary, a To-Do List Application provides a structured approach to task management, enhancing organization, productivity, and overall well-being. It empowers users to manage their time effectively, accomplish tasks, and achieve their goals.
