@@ -1,0 +1,64 @@
+import time
+
+def introduction():
+    print("Welcome to the Text Adventure Game!")
+    print("You find yourself in a mysterious land with many paths ahead.")
+    print("Your choices will determine your fate. Let the adventure begin!\n")
+
+def make_choice(choices):
+    print("Choose your path:")
+    for i, choice in enumerate(choices, 1):
+        print(f"{i}. {choice}")
+
+    while True:
+        try:
+            choice_num = int(input("Enter the number of your choice: "))
+            if 1 <= choice_num <= len(choices):
+                return choice_num
+            else:
+                print("Invalid choice. Please enter a valid number.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def adventure():
+    introduction()
+
+    # Start your adventure with the first decision point
+    choice = make_choice(["Go left into the dark forest", "Go right towards the mountains"])
+
+    if choice == 1:
+        print("\nYou enter the dark forest.")
+        time.sleep(1)
+        print("As you walk deeper, you encounter a magical creature.")
+        choice = make_choice(["Attempt to communicate with the creature", "Draw your weapon and prepare to fight"])
+
+        if choice == 1:
+            print("\nThe creature appreciates your peaceful approach.")
+            time.sleep(1)
+            print("It offers to guide you through the forest safely.")
+            print("Congratulations! You've successfully navigated the dark forest.")
+        else:
+            print("\nThe creature turns hostile!")
+            time.sleep(1)
+            print("You engage in a fierce battle but unfortunately lose.")
+            print("Game Over.")
+
+    else:
+        print("\nYou embark on a journey towards the mountains.")
+        time.sleep(1)
+        print("As you climb, you encounter a group of friendly mountain dwellers.")
+        choice = make_choice(["Join the mountain dwellers for a feast", "Continue your journey alone"])
+
+        if choice == 1:
+            print("\nYou join the mountain dwellers for a feast.")
+            time.sleep(1)
+            print("They share tales of their adventures, and you gain valuable knowledge.")
+            print("Congratulations! You've successfully bonded with the mountain dwellers.")
+        else:
+            print("\nYou decide to continue your journey alone.")
+            time.sleep(1)
+            print("Unfortunately, you face challenges and hardships on your solo journey.")
+            print("Game Over.")
+
+# Run the adventure when the script is executed
+adventure()
